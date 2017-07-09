@@ -3,6 +3,7 @@ package com.vidasoft.jpublish.website;
 import com.vidasoft.jpublish.config.Defaults;
 import com.vidasoft.jpublish.config.WorkContext;
 import com.vidasoft.jpublish.model.Website;
+import com.vidasoft.jpublish.repository.RepositoryAccessor;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -21,6 +22,9 @@ public class GeneralInfoServlet extends HttpServlet {
     @Inject
     private WorkContext workContext;
 
+    @Inject
+    private RepositoryAccessor repositoryAccessor;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String idParam = req.getParameter("id");
@@ -33,6 +37,7 @@ public class GeneralInfoServlet extends HttpServlet {
 
         workContext.setCurrentWebsite(website);
         req.setAttribute("website", website);
+        req.setAttribute("availableThemes", repositoryAccessor.getAvailableThemes());
         req.getRequestDispatcher("generalInfo.jsp").forward(req, resp);
     }
 
@@ -40,6 +45,7 @@ public class GeneralInfoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Website currentWebsite = workContext.getCurrentWebsite();
         currentWebsite.setName(req.getParameter("name"));
+        currentWebsite.getTheme().setName(req.getParameter("theme"));
         websiteDAO.updateWebsite(currentWebsite);
         resp.sendRedirect("GeneralInfo?id=" + currentWebsite.getId()    );
     }

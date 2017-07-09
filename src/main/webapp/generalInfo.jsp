@@ -11,6 +11,7 @@
     <link href="css/sb-admin-2.css" rel="stylesheet"/>
 </head>
 <body>
+<jsp:useBean id="website" scope="request" type="com.vidasoft.jpublish.model.Website"/>
 <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
@@ -34,10 +35,9 @@
         <div class="col-lg-12">
             <h1 class="page-header">General information</h1>
         </div>
-        <!-- /.col-lg-12 -->
     </div>
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
                 </div>
@@ -48,6 +48,16 @@
                                 <div class="form-group">
                                     <label for="name">Name</label>
                                     <input id="name" name="name" class="form-control" value="${website.name}" autofocus  onfocus="this.select();">
+                                </div>
+                                <div class="form-group">
+                                    <label for="themes">Theme</label>
+                                    <select id="themes" name="themes" class="form-control">
+                                        <c:forEach var="theme" items="${availableThemes}">
+                                            <option value="${theme.name}" ${theme.name eq website.theme.name ? 'selected = "selected"' : ''}>
+                                                    ${theme.displayName}
+                                            </option>
+                                        </c:forEach>
+                                    </select>
                                 </div>
                                 <button type="submit" class="btn btn-default">Save</button>
                             </form>

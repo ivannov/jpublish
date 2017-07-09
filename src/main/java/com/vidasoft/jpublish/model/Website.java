@@ -17,12 +17,20 @@ public class Website {
 
     private String owner;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private Theme theme;
+
     public Website() {
     }
 
     public Website(String name, String owner) {
+        this(name, owner, null);
+    }
+
+    public Website(String name, String owner, Theme theme) {
         this.name = name;
         this.owner = owner;
+        this.theme = theme;
     }
 
     public Long getId() {
@@ -55,5 +63,13 @@ public class Website {
 
     public void setOwner(String owner) {
         this.owner = owner;
+    }
+
+    public Theme getTheme() {
+        return theme;
+    }
+
+    public void setTheme(Theme theme) {
+        this.theme = theme;
     }
 }
