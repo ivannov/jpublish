@@ -13,19 +13,22 @@
 </head>
 <body>
 <div class="container">
-    <div style="margin-top: 25%">
+    <div style="margin-top: 10%">
         <c:forEach items="${websites}" var="website">
             <div class="row">
                 <div class="col-lg-offset-4 col-lg-3 col-md-offset-3 col-md-6">
                     <div class="panel panel-yellow">
                         <div class="panel-heading">
                             <div class="row">
-                                <div class="text-right">
-                                    <div class="huge">${website.name}</div>
+                                <div class="col-xs-3">
+                                    <i class="fa fa-edit fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div>${website.name}</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="EditWebsite?id=${website.id}">
+                        <a href="GeneralInfo?id=${website.id}">
                             <div class="panel-footer">
                                 <span class="pull-left">Edit</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -50,7 +53,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="CreateWebsite">
+                    <a href="GeneralInfo">
                         <div class="panel-footer">
                             <span class="pull-left">Create</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
