@@ -9,27 +9,39 @@
     <title>Dashboard</title>
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/sb-admin-2.css" rel="stylesheet"/>
+`    <link href="css/font-awesome.min.css" rel="stylesheet"/>
 </head>
 <body>
 <jsp:useBean id="website" scope="request" type="com.vidasoft.jpublish.model.Website"/>
-<div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="index.html">Switch sites</a>
-</div>
-<div class="navbar-default sidebar" role="navigation">
-    <div class="sidebar-nav navbar-collapse">
-        <ul class="nav" id="side-menu">
-            <li>
-                <a href="GeneralInfo">General</a>
-            </li>
-        </ul>
+<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Switch sites</a>
     </div>
-</div>
+
+    <ul class="nav navbar-top-links navbar-right">
+        <li>
+            <a href="Generate">
+                <i class="fa fa-download"></i>
+            </a>
+        </li>
+    </ul>
+    <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
+                <li>
+                    <a href="GeneralInfo">General</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">

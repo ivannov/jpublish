@@ -9,10 +9,10 @@ public class Defaults {
     public static final User DEFAULT_USER = new User("bob", "Bob", "Bob");
 
     public static Website getWebsiteTemplate() {
-        return new Website("New site", DEFAULT_USER.getUserName(), getDefaultTheme());
+        return new Website("untitled", DEFAULT_USER.getUserName(), getDefaultTheme());
     }
 
-    public static Theme getDefaultTheme() {
+    private static Theme getDefaultTheme() {
         return new Theme("sbadmin");
     }
 }
